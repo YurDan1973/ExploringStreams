@@ -28,7 +28,7 @@ public class Test1 {
         Set<String> set = new TreeSet<>();
         set.add("privet");
         set.add("kak dela?");
-        set.add("Ok");
+        set.add("ok");
         set.add("poka");
         System.out.println(set);
 
