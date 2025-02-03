@@ -19,20 +19,40 @@ public class Test2 {
         students.add(st4);
         students.add(st5);
 
+//        students.stream().map(e ->
+//        {
+//            e.setName(e.getName().toUpperCase());
+//            return e;
+//        })
+//                .filter(e -> e.getSex() == 'f')
+//                .sorted((x,y) -> x.getAge() - y.getAge())
+//                .forEach(e -> System.out.println(e));
+
 // Требуется отфильтровать студентов и оставить только тех, возраст которых больше 22 года
 // и средняя оценка меньше 7.2
 // Используем метод filter()
 
-        List<Student> students2 = new ArrayList<>();
-        students2 = students.stream().filter(element -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
-                .collect(Collectors.toList());
-        System.out.println(students2);
+//        List<Student> students2 = new ArrayList<>();
+//        students2 = students.stream().filter(element -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
+//                .collect(Collectors.toList());
+//        System.out.println(students2);
 
 // Стрим не обязательно создавать из чего-то (коллекции, массива и др.)
 // Стрим также можно создать совершенно с нуля, например:
 //        Stream<Student> myStream = Stream.of(st1, st2, st3, st4, st5);
 //        myStream.filter(element -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
 //                .collect(Collectors.toList());
+
+        Student first = students.stream().map(e ->
+                {
+                    e.setName(e.getName().toUpperCase());
+                    return e;
+                })
+                .filter(e -> e.getSex() == 'f')
+                .sorted((x,y) -> x.getAge() - y.getAge())
+                .findFirst().get();
+        System.out.println(first);
+
     }
 }
 
